@@ -1,9 +1,8 @@
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-var userGuess = " ";
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var guessesSoFar = 0;
+var guessesSoFar = [];
 var randomLetter = " ";
 
 resetGame();
@@ -12,13 +11,12 @@ function resetGame(){
     // reset initial values
     guess = " ";
     guessesLeft = 9;
-    guessesSoFar = 0;
     userGuess = " ";
     wins = 0;
     losses = 0;
 
     document.getElementById('guessesLeft').innerHTML = guessesLeft;
-    document.getElementById('guessesSoFar').innerHTML = guessesSoFar;
+    pickRandomLetter();
 }
 
 function pickRandomLetter(){
@@ -30,9 +28,7 @@ document.onkeyup = function (keyPress) {
 
     // Determines which key was pressed.
     var userGuess = keyPress.key;
-    document.getElementById("userGuess").innerHTML = userGuess;
+    guessesSoFar.push(userGuess);
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
+    console.log(guessesSoFar);
 };
-
-
-
-pickRandomLetter();
