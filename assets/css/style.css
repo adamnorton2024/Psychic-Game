@@ -1,11 +1,8 @@
-html, body{
-    height: 100%;
+.col-sm-8, .col-sm-2 {
+    border: 1px dotted blue;
 }
 
 #page-content {
-    flex: 1 0 auto;
-}
+    padding-top: 30px;
 
-#sticky-footer {
-    flex-shrink: none;
 }

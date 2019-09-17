@@ -19,29 +19,33 @@
        <a class="navbar-brand ml-auto" href="#"><h1>The Psychic Game</h1></a>
            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                <li class="nav-item active">
-                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                   <h2 class="nav-link" href="#">Wins:<span> 0</span></h2>
                </li>
-               <li class="nav-item">
-                   <a class="nav-link" href="#">Link</a>
+               <li class="nav-item active ml-2">
+                   <h2 class="nav-link" href="#">Losses:<span> 0</span></h2>
                </li>
            </ul>
        </div>
    </nav>
 
-   <div class='container' id='page-content'>
-       <h3>Guess what letter I'm thinking of: </h3>
-       <p>Wins: </p>
-       <p>Losses: </p>
-       <p>Guesses Left:</p>
-       <p>Your Guesses so far:</p>
+   <div class='container mx-auto' id='page-content'>
+        <div class="row mx-auto">
+            <div class='col-sm-2'></div>
+            <div class='col-sm-8'>
+                <h3>Guess(type) what letter I'm thinking of: </h3>
+            </div>
+            <div class='col-sm-2'></div>
+        </div>
+        <div class="row mt-5 mx-auto">
+            <div class='col-sm-2'></div>
+            <div class='col-sm-8'>
+                <p>Guesses Left:</p>
+                <p>Your Guesses so far: <span id='userGuess'></span></p>
+            </div>
+            <div class='col-sm-2'></div>
+        </div>
    </div>
 
-
-   <footer id='stick-footer' class='py-4 bg-dark text-white'>
-       <div class="container text-center">
-           <p>My Sticky Footer</p>
-       </div>
-   </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
