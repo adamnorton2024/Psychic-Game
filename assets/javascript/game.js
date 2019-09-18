@@ -9,20 +9,28 @@ resetGame();
 
 function resetGame(){
     // reset initial values
-    guess = " ";
-    guessesLeft = 9;
-    userGuess = " ";
     wins = 0;
     losses = 0;
+    resetGuesses();
+};
 
+function resetGuesses() {
+    userGuesses = ' ';
+    guessesLeft = 9;
+    guessesSoFar = [];
+    document.getElementById('wins').innerHTML = wins;
+    document.getElementById('losses').innerHTML = losses;
     document.getElementById('guessesLeft').innerHTML = guessesLeft;
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
     pickRandomLetter();
 }
 
 function pickRandomLetter(){
     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
-    document.getElementById("letter").innerHTML = randomLetter;
-}
+    //document.getElementById("letter").innerHTML = randomLetter;
+};
+
+document.getElementById("resetButton").onclick = function () { resetGame() };
 
 document.onkeyup = function (keyPress) {
 
@@ -30,5 +38,35 @@ document.onkeyup = function (keyPress) {
     var userGuess = keyPress.key;
     guessesSoFar.push(userGuess);
     document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
-    console.log(guessesSoFar);
+    
+    if (userGuess === randomLetter) {
+        win();
+    } else {
+        badGuess();
+    }
 };
+
+function win(){
+    wins++;
+    document.getElementById('wins').innerHTML = wins;
+    pickRandomLetter();
+    resetGuesses();
+};
+
+function lose(){
+    losses++;
+    document.getElementById('losses').innerHTML = losses;
+    pickRandomLetter();
+    resetGuesses();
+};
+
+function badGuess(){
+    guessesLeft--;
+    document.getElementById('guessesLeft').innerHTML = guessesLeft;
+    if(guessesLeft === 0){
+        lose();
+    }
+};
+
+
+
